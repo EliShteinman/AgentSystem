@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 using AgentManager.Enums;
 namespace AgentManager.DAL;
 
-public static class AgentDAL
+public static class AgentDal
 {
     private const string ConnectionString = "user=root;" +
                                             "Server=localhost;" +
@@ -131,7 +131,7 @@ public static class AgentDAL
         }
         catch (Exception e)
         {
-            Console.WriteLine(e.Message);;
+            Console.WriteLine(e.Message);
             throw;
         }
         finally

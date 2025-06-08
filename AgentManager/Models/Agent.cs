@@ -29,25 +29,25 @@ public class Agent
         MissionsCompleted = missionsCompleted;
         if (creation)
         {
-            AgentDAL.AddAgent(this);
+            AgentDal.AddAgent(this);
         }
     }
 
     public void UpdateStatus(AgentStatus status)
     {
         Status = status;
-        AgentDAL.UpdateStatusAgents(Id, status);
+        AgentDal.UpdateStatusAgents(Id, status);
     }
     public void UpdateMissionsCompleted(int missionsCompleted)
     {
         var temp = missionsCompleted - MissionsCompleted;
         MissionsCompleted = missionsCompleted;
-        AgentDAL.AddMissionCount(Id, temp);
+        AgentDal.AddMissionCount(Id, temp);
         
     }
     public void UpdateLocation(string location)
     {
         Location = location;
-        AgentDAL.UpdateAgentLocation(Id, location);
+        AgentDal.UpdateAgentLocation(Id, location);
     }
 }

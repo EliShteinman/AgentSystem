@@ -7,9 +7,11 @@ class Program
 {
     public static void Main()
     {
-        var agent1 = new Agent(1, "avi", "Eli Shteinman", "elad", AgentStatus.Active, 0, true);
-        var agent2 = new Agent(2, "kobi", "Izak Kakon", "bney brack", AgentStatus.Injured, 0, true);
-        var agents = AgentDAL.GetAllAgents();
+        var agent1 = new Agent(3, "avi", "Eli Shteinman", "elad", AgentStatus.Active, 0, false);
+        var agent2 = new Agent(4, "Kobe", "Izak Kakon", "Beni brak", AgentStatus.Injured, 0, false);
+        AgentDal.AddAgent(agent1);
+        AgentDal.AddAgent(agent2);
+        var agents = AgentDal.GetAllAgents();
         foreach (var agent in agents)
         {
             Console.WriteLine($"""
@@ -20,7 +22,7 @@ class Program
                                missions: {agent.MissionsCompleted}
                                """);
         }
-        AgentDAL.UpdateAgentLocation(1, "jerusalem");
+        AgentDal.UpdateAgentLocation(1, "jerusalem");
         foreach (var agent in agents)
         {
             Console.WriteLine($"""
@@ -31,7 +33,7 @@ class Program
                                missions: {agent.MissionsCompleted}
                                """);
         }
-        AgentDAL.DeleteAgent(1);
+        AgentDal.DeleteAgent(1);
         foreach (var agent in agents)
         {
             Console.WriteLine($"""
